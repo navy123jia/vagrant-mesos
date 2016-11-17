@@ -16,6 +16,7 @@
         :options:
           :uri: "qemu+unix:///system"
           :cpu_model: kvm64
+          :memory: 4096
 
   mesos:
     :provisioners:
