@@ -1,0 +1,41 @@
+# vim: set ai et ts=2 sts=2 sw=2 syntax=yaml:
+
+---
+:config: []
+
+:groups:
+
+  base:
+    :vm:
+      :box: failfish/trusty64
+    :networks:
+      - :network_type: private_network
+        :type: dhcp
+    :providers:
+      - :engine: libvirt
+        :options:
+          :uri: "qemu+unix:///system"
+          :cpu_model: kvm64
+
+  mesos:
+    :provisioners:
+      - :engine: :shell
+        :name: bootstrap-mesos
+        :options:
+          :path: scripts/mesos-bootstrap.sh
+
+:machines:
+
+  - :name: mesos-n01
+    :vm:
+      :hostname: n01.mesos.dev
+    :groups:
+      - base
+      - mesos
+
+  - :name: mesos-n02
+    :vm:
+      :hostname: n02.mesos.dev
+    :groups:
+      - base
+      - mesos
