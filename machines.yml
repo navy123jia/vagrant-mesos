@@ -29,14 +29,14 @@
 
   - :name: mesos-n01
     :vm:
-      :hostname: n01.mesos.dev
+      :hostname: n01.mesos.local
     :groups:
       - base
       - mesos
 
   - :name: mesos-n02
     :vm:
-      :hostname: n02.mesos.dev
+      :hostname: n02.mesos.local
     :groups:
       - base
       - mesos
